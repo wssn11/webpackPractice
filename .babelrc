@@ -1,0 +1,30 @@
+{
+    "presets": [
+        "@babel/preset-typescript",
+        "@babel/preset-react",
+        "@babel/preset-flow",
+        [
+            "@babel/preset-env",
+            {
+                // "useBuiltIns": "entry",//适用所有的polyfill
+                "useBuiltIns": "usage",//按需使用polyfill
+                "corejs": "3.22",
+                "debug": true  //调试模式
+            }
+        ]
+    ],
+    "plugins": [
+        // "@babel/plugin-transform-arrow-functions",
+        // "@babel/plugin-transform-classes",
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "absoluteRuntime": false,
+                "corejs": 3,
+                "helpers": true,
+                "regenerator": true,
+                "version": "7.0.0-beta.0"
+            }
+        ]
+    ]
+}
