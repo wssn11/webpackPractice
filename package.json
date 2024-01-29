@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx webpack",
-    "server": "npx webpack-dev-server --open"
+    "serve": "npx webpack-dev-server --open"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +39,7 @@
     "sass-loader": "^14.0.0",
     "style-loader": "^3.3.4",
     "webpack": "^5.90.0",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "webpackbar": "^6.0.0"
   }
 }

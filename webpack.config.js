@@ -2,6 +2,7 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const WebpackBar = require('webpackbar')
 
 module.exports = {
     // entry: "./src/hello.js",
@@ -117,28 +118,21 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'
+        }),
+        new WebpackBar({
+            color: 'blue'
         })
     ],
-    // devServer: {
-    //     static: {
-    //         directory: path.join(__dirname, 'public'),
-    //     },
-    //     compress: true,
-    //     port: 6000,
-    //     client: {
-    //         overlay: true
-    //     }
-    // },
-    // devServer: {  //服务器
-    //     static: {
-    //         directory: path.join(__dirname, 'public'),
-    //     },
-    //     compress: true,
-    //     port: 6000,
-    //     client: {
-    //         overlay: true,
-    //     },
-    // },
+    devServer: {  //服务器
+        static: {
+            directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+        port: 9000,
+        client: {
+            overlay: true,
+        },
+    },
     mode: "development",
-    // devtool: false
+    devtool: false
 } 
