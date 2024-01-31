@@ -8,14 +8,14 @@ module.exports = {
     // entry: "./src/hello.js",
     entry: {
         // app: './src/index.js',
-        app: [
+        client: [
             // '@babel/polyfill',
             './src/index.js'
         ],
-        // server: [
-        //     // "@babel/polyfill",
-        //     './src/server.js'
-        // ]
+        server: [
+            // "@babel/polyfill",
+            './src/server.js'
+        ]
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -28,6 +28,25 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
+                    // options: {
+                    //     presets: [
+                    //         [
+                    //             "@babel/preset-env",
+                    //             {
+                    //                 "useBuiltIns": "entry",
+                    //                 "corejs": "3.22",
+                    //                 // "debug": true  //调试模式
+                    //             }
+                    //         ]
+                    //     ],
+                    //     // plugins: [
+                    //     //     [
+                    //     //         "@babel/plugin-proposal-decorators",
+                    //     //         { "version": "2023-05" }
+                    //     //     ],
+                    //     //     require("@babel/plugin-transform-arrow-functions")
+                    //     // ]
+                    // }
                 }
             },
             {
@@ -83,19 +102,19 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'index page',
-            filename: 'index.html',
+            title: 'client page',
+            filename: 'client.html',
             hash: true,
             template: 'public/index-template.html',
-            chunks: ['app']
+            chunks: ['client']
         }),
-        // new HtmlWebpackPlugin({
-        //     title: 'server page',
-        //     filename: 'server.html',
-        //     hash: true,
-        //     template: 'public/index-template.html',
-        //     chunks: ['server']
-        // }),
+        new HtmlWebpackPlugin({
+            title: 'server page',
+            filename: 'server.html',
+            hash: true,
+            template: 'public/index-template.html',
+            chunks: ['server']
+        }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'

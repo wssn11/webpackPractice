@@ -8,7 +8,7 @@ import pic1 from './orca.jpg'
 function App() {
   return (
     <div>
-      app.js
+      app
       <img src={pic1} alt="显示失败"></img>
     </div>
   )
